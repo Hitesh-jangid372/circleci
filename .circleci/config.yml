@@ -11,5 +11,5 @@ jobs:
           command: npm install
       - run:
           name: Run Cypress Tests
-          command: npm run cypress:run
+          command: npx cypress run:run
 
