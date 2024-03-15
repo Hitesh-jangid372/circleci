@@ -8,6 +8,11 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
+  deploy-job:
+        steps:
+          - add_ssh_keys:
+              fingerprints:
+                - "SHA256:qWSwKp8BPfxNf/r3JJh423NHpt+EN9BMxmj5WjifPs4 jangidh212@gmail.com"
   test:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
