@@ -6,13 +6,29 @@ jobs:
       image: ubuntu-2004:202201-01
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Install cypress
-          command: npm install cypress --save-dev
-      - run:
-          name: Run Cypress Tests
-          command: npx cypress run
 
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - save_cache:
+          paths:
+            - /home/circleci/.cache/Cypress
+          key: v1-dependencies-{{ checksum "package.json" }}
+          
+      - run:
+          name: Cypress install
+          command: npm install cypress --save-dev
+      - save_cache:
+          paths:
+            - /home/circleci/.cache/Cypress
+          key: v1-dependencies-{{ checksum "package.json" }}
+          
+      - run:
+          name: Run tests
+          command: npx cypress run
