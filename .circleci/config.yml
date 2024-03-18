@@ -6,6 +6,7 @@ jobs:
       image: ubuntu-2004:202201-01
     steps:
       - checkout
+jobs:
   test:
     machine:
       image: ubuntu-2004:202201-01
