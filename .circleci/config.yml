@@ -6,7 +6,7 @@ jobs:
       image: ubuntu-2004:202201-01
     steps:
       - checkout
-      
+    
       - run:
           name: Install dependencies
           command: npm install
