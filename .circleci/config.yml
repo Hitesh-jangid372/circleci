@@ -1,12 +1,16 @@
 version: 2.1
 
 jobs:
-  test:
+  build:
     machine:
       image: ubuntu-2004:202201-01
     steps:
       - checkout
-      
+ test:
+    machine:
+      image: ubuntu-2004:202201-01
+    steps:
+      - checkout 
       - run:
           name: Install dependencies
           command: npm install
